@@ -1,1 +1,14 @@
-<router-outlet></router-outlet>
+<div class="app-layout">
+  <div class="halodoc-header-root">
+    <halodoc-header-root name="from main page"></halodoc-header-root>
+  </div>
+  <div class="halodoc-aside-root">
+    <halodoc-aside-root></halodoc-aside-root>
+  </div>
+  <article>
+    <router-outlet></router-outlet>
+  </article>
+  <footer>
+    <div>Should come from another repo.</div>
+  </footer>
+</div>

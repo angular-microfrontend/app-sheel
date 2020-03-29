@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  // colors
+  --primary-background-color: #369;
+  --primary-text-color: #fff;
+  // Spacing
+  --app-spacer: 10px;
+  // fonts
+  --font-family: cursive;
+  --font-size: 16px;
+  --font-size-header: 18px;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+}

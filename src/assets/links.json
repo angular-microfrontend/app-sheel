@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Dashboard",
+    "link": "/"
+  },
+  {
+    "name": "Customer",
+    "link": "/customers"
+  },
+  {
+    "name": "Orders",
+    "link": "/orders"
+  }
+]

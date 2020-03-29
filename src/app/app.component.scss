@@ -1,0 +1,31 @@
+.app-layout {
+  display: grid;
+  grid-template-columns: 200px auto;
+  grid-template-rows: 50px auto 50px;
+  grid-gap: 10px;
+  height: 100%;
+
+  .halodoc-header-root {
+    grid-column: 1 / -1;
+  }
+
+  .halodoc-aside-root {
+    border-right: 1px solid #efefef;
+  }
+
+  footer {
+    grid-column: 1/-1;
+    justify-content: center;
+    align-content: center;
+    background: var(--primary-background-color);
+    color: var(--primary-text-color);
+    font-size: var(--font-size-header);
+
+    > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+  }
+}
