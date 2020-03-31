@@ -1,9 +1,22 @@
 <div class="app-layout">
   <div class="halodoc-header-root">
-    <halodoc-header-root name="from main page"></halodoc-header-root>
+    <halodoc-header-root
+      name="from app shellsdfgkluiujytdh"
+    ></halodoc-header-root>
   </div>
   <div class="halodoc-aside-root">
-    <halodoc-aside-root></halodoc-aside-root>
+    <nav>
+      <ul>
+        <li *ngFor="let link of links">
+          <a
+            [routerLink]="[link.link]"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >{{ link.name }}</a
+          >
+        </li>
+      </ul>
+    </nav>
   </div>
   <article>
     <router-outlet></router-outlet>

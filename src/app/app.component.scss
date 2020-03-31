@@ -11,6 +11,10 @@
 
   .halodoc-aside-root {
     border-right: 1px solid #efefef;
+    .active {
+      font-weight: bold;
+      font-style: italic;
+    }
   }
 
   footer {

@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 
 import { LinksService } from "./core/links.service";
 import { LinkInterface } from "./shared/link-interface";
+import loadScript from "./shared/load-scripts";
 
 @Component({
   selector: "halodoc-root",
@@ -10,25 +11,14 @@ import { LinkInterface } from "./shared/link-interface";
 })
 export class AppComponent {
   title = "app-shell";
+  links: LinkInterface[];
+
   constructor(private linkService: LinksService) {
     linkService.getLinks().subscribe((links: LinkInterface[]) => {
-      window.localStorage.setItem("links", JSON.stringify(links));
+      this.links = links;
     });
-    this.loadScript();
-  }
 
-  loadScript() {
-    const dynamicScripts = [
-      "http://localhost:2222/header-module.js",
-      "http://localhost:2223/aside-module.js"
-    ];
-    for (let i = 0; i < dynamicScripts.length; i++) {
-      const node = document.createElement("script");
-      node.src = dynamicScripts[i];
-      node.type = "text/javascript";
-      node.async = true;
-      node.charset = "utf-8";
-      document.getElementsByTagName("head")[0].appendChild(node);
-    }
+    const dynamicScripts = ["http://localhost:2222/header-module.js"];
+    loadScript(dynamicScripts);
   }
 }
