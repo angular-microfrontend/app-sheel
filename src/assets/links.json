@@ -9,19 +9,19 @@
   },
   {
     "name": "Customer 2",
-    "link": "/customers/2"
+    "link": "/customers/id/2"
   },
   {
     "name": "Customer 4",
-    "link": "/customers/4"
+    "link": "/customers/id/4"
   },
   {
     "name": "Customer 7",
-    "link": "/customers/7"
+    "link": "/customers/id/7"
   },
   {
     "name": "Customer 20",
-    "link": "/customers/20"
+    "link": "/customers/id/20"
   },
   {
     "name": "Orders",

@@ -12,5 +12,9 @@ export class OrdersComponent implements OnInit {
     loadScript(dynamicScripts);
   }
 
+  headerChanged(event) {
+    console.log("value is ", event.target.value);
+  }
+
   ngOnInit(): void {}
 }

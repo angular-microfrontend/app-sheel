@@ -8,7 +8,7 @@ import loadScript from "../shared/load-scripts";
 })
 export class CustomersComponent {
   constructor() {
-    const dynamicScripts = ["http://localhost:2225/customer-module.js"];
+    const dynamicScripts = ["/mfe/customer/customer-module.js"];
     loadScript(dynamicScripts);
   }
 }
