@@ -39,12 +39,25 @@ export class AppComponent implements OnInit {
       },
     };
 
+    var self = this;
     setTimeout(() => {
       document
         .querySelector("halodoc-header-root")
         .setAttribute("data", JSON.stringify(this.data));
+
+      document
+        .querySelector("halodoc-header-root")
+        .addEventListener("translationChanged", function (e: any) {
+          self.translationChanged(e.detail.translationId);
+        });
     }, 0);
   }
 
   ngOnInit() {}
+
+  translationChanged(langid) {
+    this.currentLang = langid;
+    this.translate.use(langid);
+    console.log("inside lang id", langid);
+  }
 }
