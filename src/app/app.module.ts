@@ -15,6 +15,10 @@ export function HttpLoaderFactory(http: HttpClient) {
       prefix: "http://localhost:7454/api/",
       suffix: ".json",
     },
+    {
+      prefix: "http://localhost:7454/dashboard/",
+      suffix: ".json",
+    },
   ]);
 }
 

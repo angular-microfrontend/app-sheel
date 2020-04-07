@@ -9,4 +9,22 @@ const loadScript = (arrOfUrls: string[]) => {
   }
 };
 
+export const passDataToComponent = (context, elementTag, data, cb) => {
+  setTimeout(
+    (context) => {
+      document
+        .querySelector(elementTag)
+        .setAttribute("data", JSON.stringify(data));
+
+      document
+        .querySelector(elementTag)
+        .addEventListener("dataUpdated", (e) => {
+          cb(context, e);
+        });
+    },
+    0,
+    context
+  );
+};
+
 export default loadScript;

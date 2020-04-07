@@ -3,7 +3,7 @@ import { TranslateService } from "@ngx-translate/core";
 
 import { LinksService } from "./core/links.service";
 import { LinkInterface } from "./shared/link-interface";
-import loadScript from "./shared/load-scripts";
+import loadScript, { passDataToComponent } from "./shared/load-scripts";
 
 @Component({
   selector: "halodoc-root",
@@ -25,10 +25,7 @@ export class AppComponent implements OnInit {
 
     const dynamicScripts = ["http://localhost:2222/header-module.js"];
     loadScript(dynamicScripts);
-
-    this.currentLang = "id";
-    window.localStorage.setItem("lang", this.currentLang);
-    this.translate.use(this.currentLang);
+    this.translationChanged("id");
 
     this.data = {
       common: {
@@ -39,25 +36,23 @@ export class AppComponent implements OnInit {
       },
     };
 
-    var self = this;
-    setTimeout(() => {
-      document
-        .querySelector("halodoc-header-root")
-        .setAttribute("data", JSON.stringify(this.data));
-
-      document
-        .querySelector("halodoc-header-root")
-        .addEventListener("translationChanged", function (e: any) {
-          self.translationChanged(e.detail.translationId);
-        });
-    }, 0);
+    passDataToComponent(
+      this,
+      "halodoc-header-root",
+      this.data,
+      this.dataRecieved
+    );
   }
 
   ngOnInit() {}
 
+  dataRecieved(context, value) {
+    context.translationChanged(value.detail.translationId);
+  }
+
   translationChanged(langid) {
     this.currentLang = langid;
     this.translate.use(langid);
-    console.log("inside lang id", langid);
+    window.localStorage.setItem("lang", this.currentLang);
   }
 }
