@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { TranslateService } from "@ngx-translate/core";
 
 import { LinksService } from "./core/links.service";
@@ -18,7 +18,9 @@ export class AppComponent implements OnInit {
   constructor(
     private linkService: LinksService,
     private translate: TranslateService
-  ) {
+  ) {}
+
+  ngOnInit() {
     this.linkService.getLinks().subscribe((links: LinkInterface[]) => {
       this.links = links;
     });
@@ -44,8 +46,6 @@ export class AppComponent implements OnInit {
     );
   }
 
-  ngOnInit() {}
-
   dataRecieved(context, value) {
     context.translationChanged(value.detail.translationId);
   }
@@ -53,6 +53,5 @@ export class AppComponent implements OnInit {
   translationChanged(langid) {
     this.currentLang = langid;
     this.translate.use(langid);
-    window.localStorage.setItem("lang", this.currentLang);
   }
 }

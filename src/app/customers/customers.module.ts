@@ -8,7 +8,7 @@ import { CoreModule } from "../core/core.module";
   declarations: [CustomersComponent],
   imports: [CommonModule, CustomerRoutingModule, CoreModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  entryComponents: [CustomersComponent]
+  entryComponents: [CustomersComponent],
 })
 export class CustomersModule {
   constructor() {}
